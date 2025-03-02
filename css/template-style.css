@@ -1591,16 +1591,25 @@ table {
   width: 100%;
   border-collapse: separate; /* Menghilangkan jarak antar sel */
 }
-th, td {
+td {
   border: 1px solid rgb(0, 0, 0); /* Garis tepi untuk sel */
   padding: 8px; /* Jarak dalam sel */
   text-align: center; /* Posisi teks di kiri */
-  color: #000;
+  color: #000000;
 }
 th {
-  background-color: #00ccff; /* Warna latar header */
+  background-color: #ff0000; /* Warna latar header */
+  text-align: center;
+  color: #fff;
 }
 .checkmark {
   color: green;
   font-weight: bold;
+}
+.container {
+  display: flex; /* Menggunakan flexbox */
+  gap: 20px; /* Jarak antara dua tabel */
+}
+.table-wrapper {
+  text-align: center; /* Pusatkan teks */
 }
