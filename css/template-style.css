@@ -1613,3 +1613,13 @@ th {
 .table-wrapper {
   text-align: center; /* Pusatkan teks */
 }
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Tabel berjajar ke bawah */
+    align-items: center; /* Pusatkan tabel */
+  }
+
+  table {
+    max-width: 100%; /* Lebar tabel 100% di mobile */
+  }
+}
