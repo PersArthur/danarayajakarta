@@ -1624,3 +1624,46 @@ th {
     max-width: 100%; /* Lebar tabel 100% di mobile */
   }
 }
+
+.image-container {
+  display: flex;
+  justify-content: space-between; /* Membuat jarak antara gambar */
+  align-items: center; /* Menyelaraskan gambar secara vertikal */
+  background-color: red;
+  padding: 30px;
+  margin-top: 50px;
+  border-radius: 10px;
+}
+
+.image-container h2{
+  width: 20%;
+
+}
+
+.image-container img {
+  width: 200px; /* Lebar tetap */
+  height: 150px; /* Tinggi tetap */
+  object-fit: contain; /* Memotong gambar agar sesuai dengan ukuran yang ditentukan */
+  margin: 0 5px; /* Jarak antara gambar */
+  background-color: white;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+@media (max-width: 768px) {
+  .image-container {
+    flex-direction: column; /* Gambar berjajar ke bawah */
+    align-items: center; /* Pusatkan gambar */
+  }
+
+  .image-container img {
+    margin: 5px 0; /* Jarak antara gambar */
+    width: 100%;
+    padding: 10px;
+  }
+
+  .image-container h2{
+    width: 90%;
+    text-align: center;
+  }
+}
