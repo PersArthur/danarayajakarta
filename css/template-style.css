@@ -120,10 +120,8 @@ ul.text-list ul, ol.text-list ol {
   padding: 0 14px;
 }
 iframe {
-  display: block;
-  outline: 5px solid #002e3d;
-  border-radius: 15px;
-  margin: 0;
+  background-color: #002e3d ;
+  
 }
 
 /* Drop Cap */
@@ -214,10 +212,15 @@ video {
 } 
 
 /* Top Nav */
-.top-nav li a, .background-white .top-nav li a {
+.top-nav{
+  
+}
+.top-nav li a{
   color: #002633;
   font-size: 0.85rem;
   padding: 0.7em 1.25em;
+  align-items: end;
+  
 }
 nav {
   border-bottom: 4px solid rgba(0, 0, 0, 0.05);
@@ -247,9 +250,11 @@ ul.chevron .submenu > a::after, ul.chevron .sub-submenu > a::after, ul.chevron .
 }
 
 .logo img {
-  margin: 0 auto;
-  max-width: 300px;
-  width: 100%;
+  max-width: 600px !important; 
+  width: 100% !important;
+  height: auto;
+  margin-top: 20px !important;
+  margin-left: 15px !important;
   
 }
 
@@ -430,10 +435,18 @@ ul.chevron .submenu > a::after, ul.chevron .sub-submenu > a::after, ul.chevron .
 .background-dark2 {
   background-color: #002e3d !important;
   border-radius: 15px 15px 15px 15px;
-  flex: 2; /* Konten mengambil 2/3 lebar */
+  width: auto;
     padding: 20px;
     border-radius: 10px;
 
+}
+.background-dark3 {
+  background-color: #002e3d !important;
+  border-radius: 15px 15px 15px 15px;
+}
+.background-dark4 {
+  background-color: #002e3d !important;
+  border-radius: 15px 15px 15px 15px;
 }
 .background-grey {
   background-color: #d8d5d5 !important;
@@ -441,6 +454,7 @@ ul.chevron .submenu > a::after, ul.chevron .sub-submenu > a::after, ul.chevron .
 .background-grey2 {
   background-color: #d8d5d5 !important;
   border-radius: 15px 15px 15px 15px;
+  justify-content: right;
 }
 .background-sand {
   background-color: #f9f2e2 !important; 
@@ -490,7 +504,8 @@ ul.chevron .submenu > a::after, ul.chevron .sub-submenu > a::after, ul.chevron .
 }
 .padding-2x {
   padding: 2.5rem!important;
-}
+} 
+
 .padding-3x {
   padding: 80px!important;
 }
@@ -1053,6 +1068,8 @@ form.customform input:hover, form.customform textarea:hover, form.customform sel
 }
 
 
+
+
 /* -768px version */
 @media screen and (max-width:768px) {
     .top-nav .right {
@@ -1062,11 +1079,12 @@ form.customform input:hover, form.customform textarea:hover, form.customform sel
         padding: 10px 0;
         height: 60px;
     }
-    .logo img {
-      max-width: 172px;
-      max-height: 40px;
-      margin: 0 auto;
-      width: auto;
+    .logo img { 
+      max-width: 172px !important;
+      max-height: 40px !important;
+      margin: 10px auto !important;
+      width: auto !important;
+      padding: 0px;
     }
     
     .top-nav li a, .background-white .top-nav li a {
@@ -1805,4 +1823,70 @@ button:hover {
 .category-btn:active + .image-container,
 .image-container:hover {
   display: block;
+}
+
+.fa,.fa-map-marker{
+  margin-right: 5px;
+  font-size: 30px;
+}
+.fa,.fa-envelope{
+  margin-right: 5px;
+  font-size: 30px;
+}
+.fa,.fa-phone{
+  margin-right: 5px;
+  font-size: 30px;
+}
+
+.fa,.fa-map-marker,.alamat{
+  display: inline-block;
+}
+.fa,.fa-envelope,.email{
+  display: inline-block; 
+}
+.fa,.fa-phone,.tlpn{
+  display: inline-block; 
+}
+
+.info {
+  display: flex;
+  background-color: #002e3d;
+  gap: 20px;
+  width: 100%;
+  padding: 20px; /* Padding untuk jarak dari tepi layar */
+  box-sizing: border-box; /* Memastikan padding tidak menambah lebar */
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+.text-content {
+  text-align: center;
+  flex: 1;
+  width: 50%; /* Menyesuaikan lebar layar */
+ 
+  
+}
+
+.gmap {
+  flex: 1;
+  width: 50%; /* Menyesuaikan lebar layar */
+  height: 450px; /* Tinggi iframe */
+  border-radius: 10px;
+  
+}
+
+@media (max-width: 768px) {
+  .info {
+    flex-direction: column; /* Menumpuk elemen secara vertikal */
+  }
+
+  .text-content, .gmap {
+    margin-left: 0px;
+    width: 100%; /* Lebar penuh di layar kecil */
+  }
+
+  .gmap {
+    height: 200px; /* Tinggi iframe lebih kecil di layar kecil */
+  }
 }
