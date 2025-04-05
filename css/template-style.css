@@ -212,7 +212,7 @@ video {
 } 
 
 /* Top Nav */
-.top-nav{
+.top-ul li a{
   
 }
 .top-nav li a{
@@ -246,7 +246,7 @@ ul.chevron .submenu > a::after, ul.chevron .sub-submenu > a::after, ul.chevron .
   margin: 0 0 0 0.625rem;
 }
 .top-nav ul ul a {
-  color: #eee;
+  color: #655656;
 }
 
 .logo img {
@@ -1088,7 +1088,7 @@ form.customform input:hover, form.customform textarea:hover, form.customform sel
     }
     
     .top-nav li a, .background-white .top-nav li a {
-      background: #002633 none repeat scroll 0 0;
+      background: #415054 none repeat scroll 0 0;
       color: #fff;
       font-size: 1.1em;
       padding: 1em;
@@ -1629,7 +1629,7 @@ section, header {
     margin-right: 0;
   }  
   .top-nav, .nav-text, .top-nav li a, .background-white .top-nav li a {
-    background: none repeat scroll 0 0 #454545;
+    background: none repeat scroll 0 0 #002e3d;
     color: #fff!important
   }
   .margin-top-130 {
@@ -1732,10 +1732,10 @@ th {
     text-align: center;
   }
 }
+
 .form-container {
   flex: 1; /* Form mengambil 1/3 lebar */
   padding: 20px;
-
 }
 
 form {
@@ -1825,68 +1825,363 @@ button:hover {
   display: block;
 }
 
-.fa,.fa-map-marker{
-  margin-right: 5px;
-  font-size: 30px;
-}
-.fa,.fa-envelope{
-  margin-right: 5px;
-  font-size: 30px;
-}
-.fa,.fa-phone{
+/* Gaya untuk ikon Font Awesome */
+.fa {
   margin-right: 5px;
   font-size: 30px;
 }
 
-.fa,.fa-map-marker,.alamat{
+/* Penyesuaian khusus untuk tampilan mobile */
+@media (max-width: 768px) {
+  .fa {
+    font-size: 24px; /* Ukuran lebih kecil untuk mobile */
+  }
+}
+
+/* Gaya untuk elemen dengan ikon dan teks */
+.fa-map-marker,
+.fa-envelope,
+.fa-phone {
   display: inline-block;
-}
-.fa,.fa-envelope,.email{
-  display: inline-block; 
-}
-.fa,.fa-phone,.tlpn{
-  display: inline-block; 
+  vertical-align: middle;
 }
 
+.alamat,
+.email,
+.tlpn {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Container utama */
 .info {
   display: flex;
+  flex-wrap: wrap; /* Memungkinkan wrap pada layar kecil */
   background-color: #002e3d;
   gap: 20px;
   width: 100%;
-  padding: 20px; /* Padding untuk jarak dari tepi layar */
-  box-sizing: border-box; /* Memastikan padding tidak menambah lebar */
+  max-width: 1200px; /* Lebar maksimum */
+  padding: 20px;
+  box-sizing: border-box;
   justify-content: space-between;
   align-items: center;
-  
+  margin: 0 auto; /* Pusatkan container */
 }
 
+/* Konten teks */
 .text-content {
   text-align: center;
   flex: 1;
-  width: 50%; /* Menyesuaikan lebar layar */
- 
-  
+  min-width: 300px; /* Lebar minimum sebelum wrap */
+  color: white;
 }
 
+/* Peta Google */
 .gmap {
-  flex: 1;
-  width: 50%; /* Menyesuaikan lebar layar */
-  height: 450px; /* Tinggi iframe */
+  width: 100%;
+  max-width: 1200px;
+  height: 400px; /* Tinggi lebih kecil untuk mobile */
   border-radius: 10px;
+  display: block;
+  margin: 20px auto;
+}
+
+/* Media Queries untuk Responsivitas */
+@media (max-width: 1200px) {
+  .info {
+    padding: 20px 15px;
+  gap: 15px;
+  justify-content: center; /* Pusatkan item saat layar kecil */
+  }
   
+  .gmap {
+    height: 350px;
+  }
 }
 
 @media (max-width: 768px) {
   .info {
-    flex-direction: column; /* Menumpuk elemen secara vertikal */
+    flex-direction: column; /* Tumpuk vertikal pada mobile */
+    text-align: center;
+    gap: 15px;
   }
-
-  .text-content, .gmap {
-    margin-left: 0px;
-    width: 100%; /* Lebar penuh di layar kecil */
+  
+  .text-content {
+    width: 100%;
+    min-width: auto;
+    margin-bottom: 15px;
   }
-
+  
   .gmap {
-    height: 200px; /* Tinggi iframe lebih kecil di layar kecil */
+    height: 300px;
+    border-radius: 8px;
   }
+  
+  .fa-map-marker,
+  .fa-envelope,
+  .fa-phone {
+    display: block;
+    margin: 0 auto 5px; /* Pusatkan ikon pada mobile */
+  }
+  
+  .alamat,
+  .email,
+  .tlpn {
+    display: block;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .gmap {
+    height: 250px;
+  }
+  
+  .info {
+    padding: 15px 10px;
+  }
+  
+  .fa {
+    font-size: 20px;
+  }
+}
+
+/* New Gallery */
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 2fr));
+  gap: 10px;
+}
+.category-grid img {
+  width: 100%;
+  height:  300px; /* Set a fixed height */
+  object-fit: cover; /* Ensure the image covers the area */
+}
+.filter-buttons {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+.filter-buttons button {
+  margin: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  flex: 0 0 auto;
+  background-color: #810101;
+}
+
+/* new footer */
+
+.footer {
+  background-color: #002e3d;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  text-align: left;
+}
+
+.footer h2, .footer h3 {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.footer p {
+  color: #ffffff;
+  margin: 5px 0;
+}
+
+.footer a {
+  color: #007bff;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: color 0.3s;
+  
+}
+
+.footer a:hover {
+  color: #0056b3;
+}
+
+.company-info, .contact-info, .social-media {
+  flex: 1;
+  padding: 0 10px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  
+  .company-info, 
+  .contact-info, 
+  .social-media {
+    padding: 10px 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .social-media {
+    border-bottom: none;
+  }
+}
+
+
+
+/* TABEL DI ABOUT */
+.table-container {
+  max-width: 100%;
+  max-height: 500px; /* Tinggi maksimal sebelum scroll muncul */
+  margin: 0 auto;
+  overflow-y: auto; /* Scroll vertikal ketika konten melebihi tinggi */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
+.file-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0; /* Tambahkan ini untuk memastikan */
+}
+
+.file-table th, .file-table td {
+  padding: 12px 15px;
+  text-align: left; 
+  border: 1px solid #000000;
+}
+
+.file-table tr:nth-child(n) td {
+  border: 1px solid #000000;
+}
+
+.file-table th {
+  position: sticky ;
+  top: 0;
+  background-color: #910402;
+  color: white;
+  font-weight: 600;
+}
+
+.file-table tr:hover {
+  background-color: #f9f9f9;
+}
+
+.download-btn {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #850202;
+  color: #ffffff !important;  
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+  white-space: nowrap;
+}
+
+.download-btn:hover {
+  background-color: #ffffff;
+  color: #850202 !important;
+}
+
+.file-icon {
+  margin-right: 8px;
+  color: #7f8c8d;
+}
+
+.file-size {
+  color: #7f8c8d;
+  font-size: 0.9em;
+  white-space: nowrap;
+}
+
+/* Scrollbar styling */
+.table-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.table-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 0 8px 8px 0;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 8px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+ /* Warna selang-seling */
+ .file-table tbody tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+.file-table tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+.file-table tr:hover {
+  background-color: #f0f0f0 !important;
+}
+
+/*Member di ABout us*/
+/* Add this to your CSS file */
+.team-section {
+  text-align: center;
+  padding: 20px;
+  background-color: #cacaca;
+}
+
+.team-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #7c0202e9 !important;
+}
+
+.team-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.team-member {
+  flex: 1 1 200px;
+  margin: 10px;
+  max-width: 220px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+}
+
+.team-image {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+.team-name {
+  font-size: 18px;
+  margin-top: 10px;
+  color: #555;
+}
+
+.team-role {
+  font-size: 14px;
+  color: #850000 !important;
 }
